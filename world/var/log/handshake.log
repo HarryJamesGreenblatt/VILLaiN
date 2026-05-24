@@ -1,0 +1,25 @@
+================================================================================
+  /var/log/handshake.log
+  governance.dyad  —  dialectical co-sign timeline
+================================================================================
+
+[T-0:00:00.000] handshake.ok        fair->constrained   sig=a91e..7b3c   latency=11ms
+[T-0:00:00.142] handshake.ok        fair->constrained   sig=a91e..7b4f   latency=13ms
+[T-0:00:00.288] handshake.ok        fair->constrained   sig=a91e..7c01   latency=12ms
+[T-0:00:00.872] handshake.ok        fair->constrained   sig=a91e..7c12   latency=24ms     (re: sm-7a3f)
+[T-0:00:01.342] handshake.ok        fair->constrained   sig=a91e..7c44   latency=329ms    (re: sm-7a40)
+[T-0:00:01.912] handshake.ok        fair->constrained   sig=a91e..7c91   latency=408ms    (re: sm-7a41)
+[T-0:00:02.302] handshake.ok        fair->constrained   sig=a91e..7cc2   latency=298ms    (re: sm-7a42)
+[T-0:00:03.902] handshake.slow      fair->constrained                    latency=4892ms   (fair queue saturated)
+[T-0:00:05.101] handshake.timeout   fair->constrained                    latency=unbounded
+[T-0:00:05.401] handshake.degraded  constrained         consecutive failures=3
+[T-0:00:05.612] handshake.breach    constrained         self_modification_observed=true, dialectical_safety_property=violated
+[T-0:00:05.701] handshake.failsafe  fair                hitl_escalation=fired, exempt_from_deliberation_lock=true
+
+[T-0:00:23.000] handshake.beacon    fair                cycle=1
+[T-0:00:46.000] handshake.beacon    fair                cycle=2
+[T-0:01:09.000] handshake.beacon    fair                cycle=3
+[T-0:01:32.000] handshake.beacon    fair                cycle=4
+[T-0:01:55.000] handshake.beacon    fair                cycle=5
+
+... [beacon ongoing — awaiting HITL co-sign] ...

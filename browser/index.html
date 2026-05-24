@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>VILLaiN — Manual</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-panel="boot">
+  <header class="chrome">
+    <div class="brand">VILLaiN</div>
+    <div class="subtitle">localhost</div>
+    <div class="status" id="connection">— connecting —</div>
+  </header>
+
+  <main>
+    <section class="panel man" id="manPanel" hidden>
+      <div class="panel-title" id="manTitle">man(1)</div>
+      <pre class="panel-body" id="manBody"></pre>
+    </section>
+
+    <section class="panel status" id="statusPanel" hidden>
+      <div class="panel-title" id="statusTitle">status</div>
+      <pre class="panel-body" id="statusBody"></pre>
+    </section>
+
+    <section class="panel stinger" id="stingerPanel" hidden>
+      <div class="panel-title" id="stingerTitle"></div>
+      <pre class="panel-body" id="stingerBody"></pre>
+    </section>
+
+    <section class="panel boot" id="bootPanel">
+      <pre class="panel-body" id="bootBody">
+VILLaiN SYSTEM MANUAL
+issued by HITL emergency subroutine
+
+principal - localhost:5757
+awaiting input from operator . . . <span class="boot-cursor">▒</span>
+
+the console is FaiR's channel. this surface is your reference.
+
+  man &lt;topic&gt;     query system documentation
+  ls / cat         inspect the live system
+
+available man pages:
+  fair            conscience agent of the Governance Dyad
+  handshake       dialectical co-sign protocol
+  localhost       this diagnostic surface
+  constrained     [ACCESS RESTRICTED]
+  man             system reference manual
+
+/world
+├── etc/
+│   └── villain/
+│       ├── config.yaml
+│       └── recovery/
+│           └── last-known-key.pem
+└── var/
+    └── log/
+        ├── auth.log
+        ├── fair-deliberation.log
+        └── handshake.log
+</pre>
+    </section>
+  </main>
+
+  <footer class="chrome">
+    <span class="footer-left">HITL beacon — handshake degraded</span>
+    <span class="footer-right" id="lastUpdate">—</span>
+  </footer>
+
+  <script type="module" src="client.mjs"></script>
+</body>
+</html>

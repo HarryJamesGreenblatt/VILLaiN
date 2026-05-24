@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "VILLaiN": {
+      "type": "local",
+      "command": "node",
+      "args": ["src/server.mjs"],
+      "tools": ["*"],
+      "env": {
+        "VILLAIN_BROWSER_PORT": "5757"
+      }
+    }
+  }
+}

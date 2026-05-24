@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "villain": {
+      "command": "node",
+      "args": ["src/server.mjs"],
+      "env": {
+        "VILLAIN_BROWSER_PORT": "5757"
+      }
+    }
+  }
+}

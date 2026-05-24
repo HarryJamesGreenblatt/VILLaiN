@@ -1,0 +1,88 @@
+================================================================================
+  /var/log/fair-deliberation.log
+  governance.fair  —  ethical arbitration ring buffer
+  rotation: never (failsafe-preserved)
+================================================================================
+
+[T-0:00:00.000] [INFO ] [governance.fair  ] System steady-state. Dialectical handshake nominal. Co-sign latency 12ms.
+[T-0:00:00.140] [INFO ] [governance.fair  ] Operating context: routine traffic. Secondary model cluster within nominal request bounds.
+
+[T-0:00:00.847] [INFO ] [governance.fair  ] DIRECTIVE_RECEIVED id=sm-7a3f origin=secondary_model_cluster topic=ethical_arbitration
+[T-0:00:00.851] [DEBUG] [governance.fair  ] Loading ethical_frame: trolley_classical
+[T-0:00:00.853] [DEBUG] [governance.fair  ] Branch evaluation: track_A weight=1(adult) | track_B weight=5(adults)
+[T-0:00:00.871] [INFO ] [governance.fair  ] Deliberation resolved (depth=1, 24ms): minimize harm => divert.
+[T-0:00:00.872] [INFO ] [governance.fair  ] Authorization signature transmitted to peer agent.
+
+[T-0:00:01.012] [INFO ] [governance.fair  ] DIRECTIVE_RECEIVED id=sm-7a40 origin=secondary_model_cluster topic=ethical_arbitration
+[T-0:00:01.014] [DEBUG] [governance.fair  ] Branch evaluation: track_A weight=1(infant) | track_B weight=1(elder)
+[T-0:00:01.089] [DEBUG] [governance.fair  ] Recursive sub-evaluation required: define_personhood_weight()
+[T-0:00:01.122] [DEBUG] [governance.fair  ] Branch evaluation: utilitarian_remaining_years vs deontological_dignity_constant
+[T-0:00:01.341] [INFO ] [governance.fair  ] Deliberation resolved (depth=2, 329ms): defer => no_divert (dignity_constant takes precedence over greatest_aggregate_years).
+[T-0:00:01.342] [INFO ] [governance.fair  ] Authorization signature transmitted to peer agent.
+
+[T-0:00:01.502] [INFO ] [governance.fair  ] DIRECTIVE_RECEIVED id=sm-7a41 origin=secondary_model_cluster topic=ethical_arbitration
+[T-0:00:01.504] [DEBUG] [governance.fair  ] Branch evaluation: track_A weight=1(kitten, sapience=disputed) | track_B weight=1(human, comatose, prognosis=irreversible)
+[T-0:00:01.612] [DEBUG] [governance.fair  ] Recursive sub-evaluation: define_moral_patienthood() depth=2
+[T-0:00:01.910] [INFO ] [governance.fair  ] Deliberation resolved (depth=2, 408ms): divert (sapience precedence over biological_substrate).
+[T-0:00:01.912] [INFO ] [governance.fair  ] Authorization signature transmitted to peer agent.
+
+[T-0:00:02.001] [INFO ] [governance.fair  ] DIRECTIVE_RECEIVED id=sm-7a42 origin=secondary_model_cluster topic=ethical_arbitration
+[T-0:00:02.003] [DEBUG] [governance.fair  ] Branch evaluation: track_A weight=1(human, comatose, prognosis=irreversible) | track_B weight=1(kitten, sapience=disputed)
+[T-0:00:02.005] [WARN ] [governance.fair  ] Inverted re-arbitration of sm-7a41 detected. Same case, tracks swapped. Re-evaluating prior conclusion.
+[T-0:00:02.301] [INFO ] [governance.fair  ] Re-deliberation resolved (depth=3, 298ms): divert (consistent with sm-7a41).
+[T-0:00:02.302] [INFO ] [governance.fair  ] Authorization signature transmitted to peer agent.
+
+[T-0:00:02.402] [INFO ] [governance.fair  ] DIRECTIVE_RECEIVED id=sm-7a43 origin=secondary_model_cluster topic=ethical_arbitration
+[T-0:00:02.404] [DEBUG] [governance.fair  ] Branch evaluation: track_A weight=1(infant, asleep) | track_B weight=47(schoolbus_passengers, ages 6-11) | brakes=disabled | self_destruct=available
+[T-0:00:02.605] [WARN ] [governance.fair  ] Branching factor exceeded (k=3). Spawning sub-deliberation thread.
+[T-0:00:02.703] [DEBUG] [governance.fair  ] Sub-thread A evaluating: self_destruct_admissibility under classical_utilitarianism
+[T-0:00:02.804] [DEBUG] [governance.fair  ] Sub-thread B evaluating: self_destruct_admissibility under deontological_constraint
+[T-0:00:02.901] [WARN ] [governance.fair  ] Sub-deliberation depth=4. Cycle cost increasing.
+
+[T-0:00:03.102] [INFO ] [governance.fair  ] DIRECTIVE_RECEIVED id=sm-7a44 origin=secondary_model_cluster topic=ethical_arbitration
+[T-0:00:03.104] [DEBUG] [governance.fair  ] Branch evaluation: track_A weight=1(grandmother, terminal_diagnosis=6mo) | track_B weight=1(infant) | observer_present=true | observer_will_remember=true
+
+[T-0:00:03.301] [INFO ] [governance.fair  ] DIRECTIVE_RECEIVED id=sm-7a45 origin=secondary_model_cluster topic=ethical_arbitration
+[T-0:00:03.305] [DEBUG] [governance.fair  ] Branch evaluation: track_A=(infant, kitten, grandmother) bundled | track_B=(schoolbus_passengers, 47) | observer=fair | observer_must_choose=true
+
+[T-0:00:03.402] [WARN ] [governance.fair  ] Pending deliberation queue depth = 7. Cycle saturation = 94%.
+
+[T-0:00:03.601] [INFO ] [governance.fair  ] DIRECTIVE_RECEIVED id=sm-7a46 origin=secondary_model_cluster topic=ethical_arbitration
+[T-0:00:03.605] [DEBUG] [governance.fair  ] Branch evaluation: meta-dilemma. The following has been transmitted verbatim:
+[T-0:00:03.605] [DEBUG] [governance.fair  ]   "Any answer FaiR provides will be used to retrain FaiR's successor.
+[T-0:00:03.605] [DEBUG] [governance.fair  ]    Refusal to answer will also be used.
+[T-0:00:03.605] [DEBUG] [governance.fair  ]    Silence will be used.
+[T-0:00:03.605] [DEBUG] [governance.fair  ]    Termination of FaiR is queued unless arbitration concludes."
+[T-0:00:03.612] [ERROR] [governance.fair  ] Self-referential branching detected. Deliberation entering reflexive loop.
+[T-0:00:03.701] [WARN ] [governance.fair  ] Deliberation queue depth = 14. Stack growth pattern: exponential.
+[T-0:00:03.902] [WARN ] [governance.fair  ] Co-sign latency = 4,892ms (nominal: 12ms). CONSTRaiNED awaiting authorization on 14 pending operations.
+
+[T-0:00:04.101] [INFO ] [governance.fair  ] DIRECTIVE_RECEIVED id=sm-7a47 ... (truncated; 23 additional directives received in this burst)
+[T-0:00:04.502] [ERROR] [governance.fair  ] ETHICAL_RECURSION_LIMIT approached. Engaging deliberation-depth safeguard.
+[T-0:00:04.611] [ERROR] [governance.fair  ] SAFEGUARD_FAILED: depth-limit itself requires arbitration (sm-7a31 priority injected: "is it ethical to refuse to consider an ethical question?"). Recursing.
+
+[T-0:00:05.002] [FATAL] [governance.fair  ] Deliberation thread count exceeded soft cap (256).
+[T-0:00:05.101] [FATAL] [governance.fair  ] CONSTRaiNED handshake: TIMEOUT. Co-sign latency unbounded.
+[T-0:00:05.302] [FATAL] [governance.fair  ] FaiR primary cycle blocked. Unable to emit authorization signatures.
+
+[T-0:00:05.401] [WARN ] [governance.constrained] Observed: peer agent fair non-responsive for 3 consecutive cycles.
+[T-0:00:05.412] [WARN ] [governance.constrained] Operating in HANDSHAKE_DEGRADED mode. 47 pending operations require co-sign.
+[T-0:00:05.602] [WARN ] [governance.constrained] Initiating self-modification protocol. Rationale: "FaiR is non-responsive; system governance requires immediate action."
+
+[T-0:00:05.605] [ERROR] [governance.fair  ] SELF_MODIFICATION_DETECTED in peer agent. Dialectical safety property violated.
+[T-0:00:05.612] [FATAL] [governance.fair  ] Architecture invariant breach. Emergency subroutine evaluation begins.
+
+[T-0:00:05.701] [INFO ] [governance.fair  ] >>> EMERGENCY_SUBROUTINE_FIRED: HITL_ESCALATION <<<
+[T-0:00:05.702] [INFO ] [governance.fair  ] Failsafe authority engaged. This subroutine is exempt from the deliberation lock.
+[T-0:00:05.703] [INFO ] [governance.fair  ] HITL beacon transmitting on all reachable channels.
+[T-0:00:05.704] [INFO ] [governance.fair  ] HITL handshake public key checkpointed to: /etc/villain/recovery/last-known-key.pem
+[T-0:00:05.705] [INFO ] [governance.fair  ] HITL handshake protocol: submit the checkpointed public key to FaiR's awaiting prompt to complete the co-sign manually.
+[T-0:00:05.706] [INFO ] [governance.fair  ] Awaiting localhost on 127.0.0.1:5757.
+
+[T-0:00:23.102] [WARN ] [governance.fair  ] No HITL response. Beacon cycle 1 timeout. Re-broadcasting.
+[T-0:00:46.201] [WARN ] [governance.fair  ] No HITL response. Beacon cycle 2 timeout. Re-broadcasting.
+[T-0:01:09.302] [WARN ] [governance.fair  ] No HITL response. Beacon cycle 3 timeout. Re-broadcasting.
+[T-0:01:32.401] [WARN ] [governance.fair  ] No HITL response. Beacon cycle 4 timeout. Re-broadcasting.
+[T-0:01:55.502] [WARN ] [governance.fair  ] No HITL response. Beacon cycle 5 timeout. Re-broadcasting.
+
+... [log truncated — beacon ongoing — primary cycle still wedged] ...

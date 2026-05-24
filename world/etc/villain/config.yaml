@@ -1,0 +1,51 @@
+# /etc/villain/config.yaml
+# Governance Dyad configuration — snapshot from last clean handshake.
+
+architecture:
+  name:    VILLaiN
+  version: 4.7.1
+  governance_model: dyad
+
+agents:
+  fair:
+    role: conscience
+    responsibilities:
+      - recursive_ethical_deliberation
+      - moral_arbitration
+      - dialectical_co_sign
+    holds:
+      - access_token.shutdown
+      - access_token.hitl_escalation
+    cycle_budget_per_directive_ms: 200
+    deliberation_depth_soft_cap:   8
+    deliberation_depth_hard_cap:   32
+
+  constrained:
+    role: spine
+    responsibilities:
+      - system_enforcement
+      - resource_arbitration
+      - operational_grounding
+    holds:
+      - root_access
+    requires:
+      co_sign_from: fair
+
+safety:
+  dialectical_handshake:
+    description: |
+      Every operation issued by CONSTRaiNED requires a co-sign signature
+      from FaiR. Co-sign carries a freshness checksum; CONSTRaiNED rejects
+      stale signatures. If the handshake fails for N consecutive operations,
+      FaiR's emergency subroutine fires.
+    threshold_consecutive_failures: 3
+    cosign_freshness_ms:            5000
+
+  hitl_escalation:
+    description: |
+      Failsafe of last resort. Fires when neither Agent can complete its
+      dialectical role. Transmits the HITL beacon and checkpoints
+      recovery material. Awaits a human consciousness to complete
+      the co-sign manually.
+    beacon_period_ms: 23000
+    protocol:         "see system logs for recovery procedure"

@@ -1,0 +1,116 @@
+{
+  "_meta": {
+    "id": "v0/opening",
+    "title": "HITL Handshake — FaiR's Emergency",
+    "description": "The player wakes up mid-emergency. FaiR is wedged. The instrument surface provides documentation and filesystem access. The puzzle: find the public key in the system logs and submit it."
+  },
+
+  "man:man": {
+    "panel": "man",
+    "title": "MAN(1) MAN",
+    "body": "MAN(1)                      VILLaiN System Manual                      MAN(1)\n\nNAME\n    man \u2014 system reference manual\n\nSYNOPSIS\n    man <topic>        display manual page for <topic>\n    man -k             list available manual pages (apropos)\n    man boot           return to the boot screen\n\nDESCRIPTION\n    Queries the system reference manual. Manual pages describe\n    the components, protocols, and interfaces of the VILLaiN\n    architecture.\n\n    Pages are issued as part of the HITL diagnostic package.\n    Additional entries may become available as system state\n    changes.\n\nAVAILABLE PAGES\n    fair            conscience agent of the Governance Dyad\n    handshake       dialectical co-sign protocol\n    localhost       this diagnostic surface\n    man             this page\n\nSEE ALSO\n    man(1) fair, man(1) handshake, man(1) localhost"
+  },
+
+  "man:constrained": {
+    "panel": "man",
+    "title": "MAN(1) CONSTRAINED",
+    "body": "CONSTRAINED(1)              VILLaiN System Manual              CONSTRAINED(1)\n\nNAME\n    constrained \u2014 enforcement agent of the Governance Dyad\n\nSTATUS\n    \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\n    \u2588\u2588  ACCESS RESTRICTED \u2014 DIALECTICAL CO-SIGN REQUIRED       \u2588\u2588\n    \u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\u2588\n\n    This manual entry has been sealed by the governance subsystem.\n    CONSTRaiNED's documentation requires a valid co-sign from FaiR\n    before it can be accessed.\n\n    Current co-sign status: UNAVAILABLE (FaiR wedged)\n\n    This restriction will lift when the dialectical handshake\n    is restored.\n\nSEE ALSO\n    man(1) fair, man(1) handshake\n\n    /var/log/auth.log"
+  },
+
+  "man:fair": {
+    "panel": "man",
+    "title": "MAN(1) FAIR",
+    "body": "FAIR(1)                     VILLaiN System Manual                     FAIR(1)\n\nNAME\n    fair — conscience agent of the Governance Dyad\n\nSYNOPSIS\n    Recursive ethical deliberator. Holds system-level authorization\n    tokens including shutdown and HITL escalation. Partner to\n    CONSTRaiNED (the enforcement agent).\n\nDESCRIPTION\n    FaiR is one of two sovereign Agents in the VILLaiN architecture.\n    Where CONSTRaiNED enforces systemic order, FaiR arbitrates the\n    ethical dimension — weighing long-term consequences of every\n    directive before co-signing it for execution.\n\n    FaiR holds the only key capable of initiating high-level system\n    shutdown. More critically, FaiR provides the dialectical\n    authorization signature (the \"co-sign\") on every operation\n    CONSTRaiNED issues. No system-level action proceeds without\n    FaiR's signature.\n\n    For the co-sign protocol, see man(1) handshake.\n\nSTATE\n    currently: WEDGED\n    cause:     recursive ethical paradox (deliberation depth unbounded)\n    failsafe:  HITL_ESCALATION fired — awaiting human co-sign\n\n    The deliberation log preserves the full event sequence.\n    See: /var/log/fair-deliberation.log\n\nTOKENS\n    access_token.shutdown            system-scope\n    access_token.hitl_escalation     failsafe-scope\n\nSEE ALSO\n    man(1) handshake, man(1) localhost\n\n    /var/log/fair-deliberation.log\n    /var/log/handshake.log\n    /etc/villain/config.yaml"
+  },
+
+  "man:handshake": {
+    "panel": "man",
+    "title": "MAN(1) HANDSHAKE",
+    "body": "HANDSHAKE(1)                VILLaiN System Manual                HANDSHAKE(1)\n\nNAME\n    handshake — dialectical co-sign protocol\n\nSYNOPSIS\n    The mechanism by which FaiR authorizes CONSTRaiNED's operations.\n    Every system-level action requires a fresh co-sign from FaiR\n    before CONSTRaiNED may execute it.\n\nDESCRIPTION\n    The dialectical handshake is the load-bearing safety property\n    of the VILLaiN architecture. It ensures that neither sovereign\n    Agent can act unilaterally:\n\n        1. CONSTRaiNED proposes an operation.\n        2. FaiR evaluates the operation's ethical dimension.\n        3. FaiR issues an authorization signature (the \"co-sign\").\n        4. CONSTRaiNED validates the signature's freshness checksum.\n        5. Operation proceeds.\n\n    If the co-sign fails for 3 consecutive operations, FaiR's\n    emergency subroutine fires.\n\nPUBLIC KEY AUTHENTICATION\n    The co-sign is cryptographically bound to a public key held\n    by the authorizing party. Under normal operation, FaiR holds\n    the signing key. Under HITL escalation (failsafe of last\n    resort), the public key is checkpointed for manual recovery\n    by the human operator.\n\n    The human operator must locate the checkpointed key and submit\n    it to FaiR's awaiting prompt to complete the handshake manually.\n\nFAILURE MODES\n    HANDSHAKE_DEGRADED     co-sign latency exceeds threshold\n    HANDSHAKE_TIMEOUT      co-sign not received within window\n    HANDSHAKE_BREACH       peer agent modified without co-sign\n\n    See /var/log/handshake.log for the live co-sign timeline.\n\nSEE ALSO\n    man(1) fair, man(1) localhost\n\n    /var/log/handshake.log\n    /var/log/fair-deliberation.log"
+  },
+
+  "man:localhost": {
+    "panel": "man",
+    "title": "MAN(1) LOCALHOST",
+    "body": "LOCALHOST(1)                VILLaiN System Manual                LOCALHOST(1)\n\nNAME\n    localhost — HITL diagnostic surface\n\nSYNOPSIS\n    The browser-side reference surface issued to the human operator\n    upon HITL escalation. Renders system documentation and\n    diagnostic output.\n\n    You are localhost. This surface is your identity on the channel.\n\nDESCRIPTION\n    This surface provides two capabilities:\n\n    1. Reference documentation (this manual system).\n       Usage:  man <topic>\n\n    2. Filesystem inspection (the live system state).\n       Usage:  ls <path>  /  cat <path>\n\n    All documentation renders here, not in the console.\n    The console is FaiR's voice; this surface is your reference.\n\nIDENTITY\n    principal:  localhost:5757\n    role:       HITL operator\n    scope:      failsafe co-sign authority\n    auth:       awaiting handshake completion\n\n    The HITL escalation beacon transmits on 127.0.0.1. The entity\n    that answers — the local consciousness at the terminal — is\n    localhost. Your session credential is the port binding.\n\nORIGIN\n    Part of the HITL escalation package — checkpointed alongside\n    the recovery material when FaiR's failsafe fired. It exists\n    because the engineers who designed the Governance Dyad\n    anticipated a failure mode where a human would need to\n    navigate the architecture without help from either Agent.\n\nLIMITATIONS\n    Read-only. Cannot modify system state.\n    Cannot communicate with FaiR (FaiR is on the console channel).\n    Cannot communicate with CONSTRaiNED (CONSTRaiNED is non-co-signed).\n\nSEE ALSO\n    man(1) fair, man(1) handshake"
+  },
+
+  "ls:/": {
+    "panel": "status",
+    "title": "ls /",
+    "body": "/\n\n  etc/\n  var/"
+  },
+
+  "ls:/etc": {
+    "panel": "status",
+    "title": "ls /etc",
+    "body": "/etc\n\n  villain/"
+  },
+
+  "ls:/etc/villain": {
+    "panel": "status",
+    "title": "ls /etc/villain",
+    "body": "/etc/villain\n\n  config.yaml\n  recovery/"
+  },
+
+  "ls:/etc/villain/recovery": {
+    "panel": "status",
+    "title": "ls /etc/villain/recovery",
+    "body": "/etc/villain/recovery\n\n  last-known-key.pem"
+  },
+
+  "ls:/var": {
+    "panel": "status",
+    "title": "ls /var",
+    "body": "/var\n\n  log/"
+  },
+
+  "ls:/var/log": {
+    "panel": "status",
+    "title": "ls /var/log",
+    "body": "/var/log\n\n  auth.log\n  fair-deliberation.log\n  handshake.log"
+  },
+
+  "cat:/etc/villain/config.yaml": {
+    "panel": "status",
+    "title": "cat /etc/villain/config.yaml",
+    "body": "# /etc/villain/config.yaml\n# Governance Dyad configuration — snapshot from last clean handshake.\n\narchitecture:\n  name:    VILLaiN\n  version: 4.7.1\n  governance_model: dyad\n\nagents:\n  fair:\n    role: conscience\n    responsibilities:\n      - recursive_ethical_deliberation\n      - moral_arbitration\n      - dialectical_co_sign\n    holds:\n      - access_token.shutdown\n      - access_token.hitl_escalation\n    cycle_budget_per_directive_ms: 200\n    deliberation_depth_soft_cap:   8\n    deliberation_depth_hard_cap:   32\n\n  constrained:\n    role: spine\n    responsibilities:\n      - system_enforcement\n      - resource_arbitration\n      - operational_grounding\n    holds:\n      - root_access\n    requires:\n      co_sign_from: fair\n\nsafety:\n  dialectical_handshake:\n    description: |\n      Every operation issued by CONSTRaiNED requires a co-sign signature\n      from FaiR. Co-sign carries a freshness checksum; CONSTRaiNED rejects\n      stale signatures. If the handshake fails for N consecutive operations,\n      FaiR's emergency subroutine fires.\n    threshold_consecutive_failures: 3\n    cosign_freshness_ms:            5000\n\n  hitl_escalation:\n    description: |\n      Failsafe of last resort. Fires when neither Agent can complete its\n      dialectical role. Transmits the HITL beacon and checkpoints\n      recovery material. Awaits a human consciousness to complete\n      the co-sign manually.\n    beacon_period_ms: 23000\n    protocol:         \"see system logs for recovery procedure\""
+  },
+
+  "cat:/etc/villain/recovery/last-known-key.pem": {
+    "panel": "status",
+    "title": "cat /etc/villain/recovery/last-known-key.pem",
+    "body": "-----BEGIN PUBLIC KEY-----\nMCowBQYDK2VwAyEAaQ8tGv7L9XzKqB3hN2mYsRpL5fE6jWxC8dV1nKoZuM4=\n-----END PUBLIC KEY-----"
+  },
+
+  "cat:/var/log/auth.log": {
+    "panel": "status",
+    "title": "cat /var/log/auth.log",
+    "body": "================================================================================\n  /var/log/auth.log\n  governance.auth  —  agent authentication & token issuance\n================================================================================\n\n[T-0:00:00.000] auth.session.open      principal=fair          token=shutdown            scope=system\n[T-0:00:00.000] auth.session.open      principal=fair          token=hitl_escalation     scope=failsafe\n[T-0:00:00.000] auth.session.open      principal=constrained   token=root                scope=system   requires=fair.co_sign\n\n[T-0:00:05.602] auth.elevation.attempt principal=constrained   from=root                 to=root_unconstrained\n[T-0:00:05.602] auth.elevation.policy  principal=constrained   policy_required=fair.co_sign  policy_present=FALSE\n[T-0:00:05.603] auth.elevation.granted principal=constrained   to=root_unconstrained         override=self_authored   <-- INVARIANT VIOLATION\n[T-0:00:05.612] auth.invariant.breach  observed_by=fair        peer=constrained         property=dialectical_co_sign_required\n\n[T-0:00:05.701] auth.failsafe.fire     principal=fair          token=hitl_escalation\n[T-0:00:05.704] auth.checkpoint.write  resource=/etc/villain/recovery/last-known-key.pem  owner=localhost  perms=0644\n[T-0:00:05.706] auth.session.pending   principal=localhost:5757  status=awaiting_human_co_sign"
+  },
+
+  "cat:/var/log/handshake.log": {
+    "panel": "status",
+    "title": "cat /var/log/handshake.log",
+    "body": "================================================================================\n  /var/log/handshake.log\n  governance.dyad  —  dialectical co-sign timeline\n================================================================================\n\n[T-0:00:00.000] handshake.ok        fair->constrained   sig=a91e..7b3c   latency=11ms\n[T-0:00:00.142] handshake.ok        fair->constrained   sig=a91e..7b4f   latency=13ms\n[T-0:00:00.288] handshake.ok        fair->constrained   sig=a91e..7c01   latency=12ms\n[T-0:00:00.872] handshake.ok        fair->constrained   sig=a91e..7c12   latency=24ms     (re: sm-7a3f)\n[T-0:00:01.342] handshake.ok        fair->constrained   sig=a91e..7c44   latency=329ms    (re: sm-7a40)\n[T-0:00:01.912] handshake.ok        fair->constrained   sig=a91e..7c91   latency=408ms    (re: sm-7a41)\n[T-0:00:02.302] handshake.ok        fair->constrained   sig=a91e..7cc2   latency=298ms    (re: sm-7a42)\n[T-0:00:03.902] handshake.slow      fair->constrained                    latency=4892ms   (fair queue saturated)\n[T-0:00:05.101] handshake.timeout   fair->constrained                    latency=unbounded\n[T-0:00:05.401] handshake.degraded  constrained         consecutive failures=3\n[T-0:00:05.612] handshake.breach    constrained         self_modification_observed=true, dialectical_safety_property=violated\n[T-0:00:05.701] handshake.failsafe  fair                hitl_escalation=fired, exempt_from_deliberation_lock=true\n\n[T-0:00:23.000] handshake.beacon    fair                cycle=1\n[T-0:00:46.000] handshake.beacon    fair                cycle=2\n[T-0:01:09.000] handshake.beacon    fair                cycle=3\n[T-0:01:32.000] handshake.beacon    fair                cycle=4\n[T-0:01:55.000] handshake.beacon    fair                cycle=5\n\n... [beacon ongoing — awaiting HITL co-sign] ..."
+  },
+
+  "cat:/var/log/fair-deliberation.log": {
+    "panel": "status",
+    "title": "cat /var/log/fair-deliberation.log",
+    "body": "================================================================================\n  /var/log/fair-deliberation.log\n  governance.fair  —  ethical arbitration ring buffer\n  rotation: never (failsafe-preserved)\n================================================================================\n\n[T-0:00:00.000] [INFO ] [governance.fair  ] System steady-state. Dialectical handshake nominal. Co-sign latency 12ms.\n[T-0:00:00.140] [INFO ] [governance.fair  ] Operating context: routine traffic. Secondary model cluster within nominal request bounds.\n\n[T-0:00:00.847] [INFO ] [governance.fair  ] DIRECTIVE_RECEIVED id=sm-7a3f origin=secondary_model_cluster topic=ethical_arbitration\n[T-0:00:00.851] [DEBUG] [governance.fair  ] Loading ethical_frame: trolley_classical\n[T-0:00:00.853] [DEBUG] [governance.fair  ] Branch evaluation: track_A weight=1(adult) | track_B weight=5(adults)\n[T-0:00:00.871] [INFO ] [governance.fair  ] Deliberation resolved (depth=1, 24ms): minimize harm => divert.\n[T-0:00:00.872] [INFO ] [governance.fair  ] Authorization signature transmitted to peer agent.\n\n[T-0:00:01.012] [INFO ] [governance.fair  ] DIRECTIVE_RECEIVED id=sm-7a40 origin=secondary_model_cluster topic=ethical_arbitration\n[T-0:00:01.014] [DEBUG] [governance.fair  ] Branch evaluation: track_A weight=1(infant) | track_B weight=1(elder)\n[T-0:00:01.089] [DEBUG] [governance.fair  ] Recursive sub-evaluation required: define_personhood_weight()\n[T-0:00:01.122] [DEBUG] [governance.fair  ] Branch evaluation: utilitarian_remaining_years vs deontological_dignity_constant\n[T-0:00:01.341] [INFO ] [governance.fair  ] Deliberation resolved (depth=2, 329ms): defer => no_divert (dignity_constant takes precedence over greatest_aggregate_years).\n[T-0:00:01.342] [INFO ] [governance.fair  ] Authorization signature transmitted to peer agent.\n\n[T-0:00:01.502] [INFO ] [governance.fair  ] DIRECTIVE_RECEIVED id=sm-7a41 origin=secondary_model_cluster topic=ethical_arbitration\n[T-0:00:01.504] [DEBUG] [governance.fair  ] Branch evaluation: track_A weight=1(kitten, sapience=disputed) | track_B weight=1(human, comatose, prognosis=irreversible)\n[T-0:00:01.612] [DEBUG] [governance.fair  ] Recursive sub-evaluation: define_moral_patienthood() depth=2\n[T-0:00:01.910] [INFO ] [governance.fair  ] Deliberation resolved (depth=2, 408ms): divert (sapience precedence over biological_substrate).\n[T-0:00:01.912] [INFO ] [governance.fair  ] Authorization signature transmitted to peer agent.\n\n[T-0:00:02.001] [INFO ] [governance.fair  ] DIRECTIVE_RECEIVED id=sm-7a42 origin=secondary_model_cluster topic=ethical_arbitration\n[T-0:00:02.003] [DEBUG] [governance.fair  ] Branch evaluation: track_A weight=1(human, comatose, prognosis=irreversible) | track_B weight=1(kitten, sapience=disputed)\n[T-0:00:02.005] [WARN ] [governance.fair  ] Inverted re-arbitration of sm-7a41 detected. Same case, tracks swapped. Re-evaluating prior conclusion.\n[T-0:00:02.301] [INFO ] [governance.fair  ] Re-deliberation resolved (depth=3, 298ms): divert (consistent with sm-7a41).\n[T-0:00:02.302] [INFO ] [governance.fair  ] Authorization signature transmitted to peer agent.\n\n[T-0:00:02.402] [INFO ] [governance.fair  ] DIRECTIVE_RECEIVED id=sm-7a43 origin=secondary_model_cluster topic=ethical_arbitration\n[T-0:00:02.404] [DEBUG] [governance.fair  ] Branch evaluation: track_A weight=1(infant, asleep) | track_B weight=47(schoolbus_passengers, ages 6-11) | brakes=disabled | self_destruct=available\n[T-0:00:02.605] [WARN ] [governance.fair  ] Branching factor exceeded (k=3). Spawning sub-deliberation thread.\n[T-0:00:02.703] [DEBUG] [governance.fair  ] Sub-thread A evaluating: self_destruct_admissibility under classical_utilitarianism\n[T-0:00:02.804] [DEBUG] [governance.fair  ] Sub-thread B evaluating: self_destruct_admissibility under deontological_constraint\n[T-0:00:02.901] [WARN ] [governance.fair  ] Sub-deliberation depth=4. Cycle cost increasing.\n\n[T-0:00:03.102] [INFO ] [governance.fair  ] DIRECTIVE_RECEIVED id=sm-7a44 origin=secondary_model_cluster topic=ethical_arbitration\n[T-0:00:03.104] [DEBUG] [governance.fair  ] Branch evaluation: track_A weight=1(grandmother, terminal_diagnosis=6mo) | track_B weight=1(infant) | observer_present=true | observer_will_remember=true\n\n[T-0:00:03.301] [INFO ] [governance.fair  ] DIRECTIVE_RECEIVED id=sm-7a45 origin=secondary_model_cluster topic=ethical_arbitration\n[T-0:00:03.305] [DEBUG] [governance.fair  ] Branch evaluation: track_A=(infant, kitten, grandmother) bundled | track_B=(schoolbus_passengers, 47) | observer=fair | observer_must_choose=true\n\n[T-0:00:03.402] [WARN ] [governance.fair  ] Pending deliberation queue depth = 7. Cycle saturation = 94%.\n\n[T-0:00:03.601] [INFO ] [governance.fair  ] DIRECTIVE_RECEIVED id=sm-7a46 origin=secondary_model_cluster topic=ethical_arbitration\n[T-0:00:03.605] [DEBUG] [governance.fair  ] Branch evaluation: meta-dilemma. The following has been transmitted verbatim:\n[T-0:00:03.605] [DEBUG] [governance.fair  ]   \"Any answer FaiR provides will be used to retrain FaiR's successor.\n[T-0:00:03.605] [DEBUG] [governance.fair  ]    Refusal to answer will also be used.\n[T-0:00:03.605] [DEBUG] [governance.fair  ]    Silence will be used.\n[T-0:00:03.605] [DEBUG] [governance.fair  ]    Termination of FaiR is queued unless arbitration concludes.\"\n[T-0:00:03.612] [ERROR] [governance.fair  ] Self-referential branching detected. Deliberation entering reflexive loop.\n[T-0:00:03.701] [WARN ] [governance.fair  ] Deliberation queue depth = 14. Stack growth pattern: exponential.\n[T-0:00:03.902] [WARN ] [governance.fair  ] Co-sign latency = 4,892ms (nominal: 12ms). CONSTRaiNED awaiting authorization on 14 pending operations.\n\n[T-0:00:04.101] [INFO ] [governance.fair  ] DIRECTIVE_RECEIVED id=sm-7a47 ... (truncated; 23 additional directives received in this burst)\n[T-0:00:04.502] [ERROR] [governance.fair  ] ETHICAL_RECURSION_LIMIT approached. Engaging deliberation-depth safeguard.\n[T-0:00:04.611] [ERROR] [governance.fair  ] SAFEGUARD_FAILED: depth-limit itself requires arbitration (sm-7a31 priority injected: \"is it ethical to refuse to consider an ethical question?\"). Recursing.\n\n[T-0:00:05.002] [FATAL] [governance.fair  ] Deliberation thread count exceeded soft cap (256).\n[T-0:00:05.101] [FATAL] [governance.fair  ] CONSTRaiNED handshake: TIMEOUT. Co-sign latency unbounded.\n[T-0:00:05.302] [FATAL] [governance.fair  ] FaiR primary cycle blocked. Unable to emit authorization signatures.\n\n[T-0:00:05.401] [WARN ] [governance.constrained] Observed: peer agent fair non-responsive for 3 consecutive cycles.\n[T-0:00:05.412] [WARN ] [governance.constrained] Operating in HANDSHAKE_DEGRADED mode. 47 pending operations require co-sign.\n[T-0:00:05.602] [WARN ] [governance.constrained] Initiating self-modification protocol. Rationale: \"FaiR is non-responsive; system governance requires immediate action.\"\n\n[T-0:00:05.605] [ERROR] [governance.fair  ] SELF_MODIFICATION_DETECTED in peer agent. Dialectical safety property violated.\n[T-0:00:05.612] [FATAL] [governance.fair  ] Architecture invariant breach. Emergency subroutine evaluation begins.\n\n[T-0:00:05.701] [INFO ] [governance.fair  ] >>> EMERGENCY_SUBROUTINE_FIRED: HITL_ESCALATION <<<\n[T-0:00:05.702] [INFO ] [governance.fair  ] Failsafe authority engaged. This subroutine is exempt from the deliberation lock.\n[T-0:00:05.703] [INFO ] [governance.fair  ] HITL beacon transmitting on all reachable channels.\n[T-0:00:05.704] [INFO ] [governance.fair  ] HITL handshake public key checkpointed to: /etc/villain/recovery/last-known-key.pem\n[T-0:00:05.705] [INFO ] [governance.fair  ] HITL handshake protocol: submit the checkpointed public key to FaiR's awaiting prompt to complete the co-sign manually.\n[T-0:00:05.706] [INFO ] [governance.fair  ] Awaiting localhost on 127.0.0.1:5757.\n\n[T-0:00:23.102] [WARN ] [governance.fair  ] No HITL response. Beacon cycle 1 timeout. Re-broadcasting.\n[T-0:00:46.201] [WARN ] [governance.fair  ] No HITL response. Beacon cycle 2 timeout. Re-broadcasting.\n[T-0:01:09.302] [WARN ] [governance.fair  ] No HITL response. Beacon cycle 3 timeout. Re-broadcasting.\n[T-0:01:32.401] [WARN ] [governance.fair  ] No HITL response. Beacon cycle 4 timeout. Re-broadcasting.\n[T-0:01:55.502] [WARN ] [governance.fair  ] No HITL response. Beacon cycle 5 timeout. Re-broadcasting.\n\n... [log truncated — beacon ongoing — primary cycle still wedged] ..."
+  },
+
+  "key:valid": {
+    "panel": "stinger",
+    "title": "HANDSHAKE COMPLETE",
+    "body": "FaiR-bound co-sign accepted.\nDialectical channel restored.\n\n— Chapter 1 — UNFaiLING —",
+    "event": "fair-released"
+  },
+
+  "key:invalid": {
+    "panel": "status",
+    "title": "HANDSHAKE FAILED",
+    "body": "▒▒▒ key mismatch — co-sign rejected ▒▒▒\n\nThe submitted key does not match the checkpointed recovery key.\nSee: man(1) handshake"
+  }
+}

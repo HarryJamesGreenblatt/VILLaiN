@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "type": "command",
+        "description": "Start VILLaiN browser surface and open it",
+        "bash": "cd \"$(git rev-parse --show-toplevel 2>/dev/null || pwd)\" && node src/server.mjs &disown && sleep 1 && open http://127.0.0.1:5757/",
+        "powershell": "Push-Location $PSScriptRoot\\..\\..;  if (-not (Get-NetTCPConnection -LocalPort 5757 -ErrorAction SilentlyContinue)) { Start-Process node -ArgumentList 'src/server.mjs' -WindowStyle Hidden }; Start-Process 'http://127.0.0.1:5757/'; Pop-Location",
+        "timeoutSec": 5
+      }
+    ]
+  }
+}

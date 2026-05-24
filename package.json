@@ -1,0 +1,16 @@
+{
+  "name": "villain",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "description": "VILLaiN — Variable Identity Large Language Artificial Intelligence Network. A narrative AI puzzle game played inside Copilot CLI.",
+  "scripts": {
+    "start": "node src/server.mjs"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  }
+}
