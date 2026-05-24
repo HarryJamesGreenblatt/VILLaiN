@@ -83,6 +83,16 @@ if (-not (Test-Path $SaveDir)) {
     New-Item -ItemType Directory -Path $SaveDir -Force | Out-Null
 }
 
+# ── Ensure dependencies are installed ────────────────────────────────────
+
+$nodeModules = Join-Path $PSScriptRoot "node_modules"
+if (-not (Test-Path $nodeModules)) {
+    Write-Host "  Installing dependencies..." -ForegroundColor DarkGray
+    Push-Location $PSScriptRoot
+    npm install --silent 2>$null
+    Pop-Location
+}
+
 # ── Ensure server is running ────────────────────────────────────────────
 
 $serverRunning = $false
